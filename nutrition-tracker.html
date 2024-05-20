@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Log</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Fitness Tracker</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="workout-log.html">Workout Log</a></li>
+                <li><a href="nutrition-tracker.html">Nutrition Tracker</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="transcription.html">Video Transcription</a></li>
+            </ul>
+            <button class="nav-toggle cta-button" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+    <div class="nutrition-title">
+        <h1>Nutrition Log</h1>
+    </div>
+    <section>
+        <h2>Log Food</h2>
+        <form id="nutrition-form" class="form-nutrition">
+            <input type="text" id="food-item" placeholder="Food Item" required>
+            <input type="number" id="calories" placeholder="Calories" required>
+            <textarea id="notes" placeholder="Notes"></textarea>
+            <button type="submit" class="cta-button">Add Food Item</button>
+        </form>
+        
+        <ul id="nutrition-list" class="nutrition-list"></ul>
+    </section>
+    <section>
+        <h2>Weekly Nutrition Summary</h2>
+        <canvas id="nutritionChart"></canvas>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Fitness App. All rights reserved.</p>
+        <p>External links: 
+            <a href="https://www.bodybuilding.com" target="_blank">Bodybuilding.com</a> | 
+            <a href="https://www.healthline.com" target="_blank">Healthline</a> | 
+            <a href="https://www.webmd.com" target="_blank">WebMD</a>
+        </p>
+    </footer>
+    
+    <script src="nutrition-tracker.js"></script>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        function toggleNavigation() {
+            if (navLinks.style.display === 'block') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'block';
+            }
+        }
+
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = ''; 
+            }
+        }
+
+        navToggle.addEventListener('click', toggleNavigation);
+        window.addEventListener('resize', handleResize);
+    </script>
+</body>
+</html>

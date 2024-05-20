@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Fitness Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Fitness Tracker</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="workout-log.html">Workout Log</a></li>
+                <li><a href="nutrition-tracker.html">Nutrition Tracker</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="transcription.html">Video Transcription</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="index-title">
+        <div class="welcome">
+            <h1>Welcome to Fitness <br> Tracker</h1>
+        </div>
+        <div class="tagline">
+            <p><strong>Track</strong> your workouts and nutrition to achieve <br> your fitness goals.</p>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <video width="560" height="960" title="YouTube video player" controls poster="./public/poster.jpg">
+            <source src="public/Video1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="transcription-button-container">
+        <button class="cta-button1" onclick="window.location.href='transcription.html'">Read Transcription</button>
+    </div>
+
+    <section>
+        <h2>Main Features</h2>
+        <section class="features">
+            <div class="feature">
+                <div class="feature-image">
+                    <a href="#" onclick="openModal('public/Picture1.jpg')">
+                        <img src="public/Picture1.PNG" alt="African American Man flexing" class="feature-image">
+                    </a>
+                </div>
+                <div class="feature-content">
+                    <h3>Workout Planner</h3>
+                    <p>Create personalized workout plans and schedule your workouts to fit your lifestyle.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-image">
+                    <a href="#" onclick="openModal('public/Picture2.jpg')">
+                        <img src="public/Picture2.PNG" alt="Female in kitchen focusing on her diet" class="feature-image">
+                    </a>
+                </div>
+                <div class="feature-content">
+                    <h3>Nutrition Tracking</h3>
+                    <p>Keep an accurate log of your daily nutrition intake and maintain a balanced diet.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section>
+        <h2>Testimonials</h2>
+        <div class="testimonial-card">
+            <div class="testimonial-image-placeholder">
+                <img src="public/Picture4.jpg" alt="Blonde man sitting with a laptop" class="testimonial-image-placeholder">
+            </div>
+            <div class="testimonial-info">
+                <strong class="testimonial-name">John Doe</strong>
+                <span class="testimonial-role">Product Designer</span>
+                <p class="testimonial-text">"Fitness Tracker has helped me stay motivated and achieve my fitness goals. Highly recommended"</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-plans">
+        <div class="plan basic-plan">
+            <h3>Basic Plan</h3>
+            <p class="price">$9.99/month</p>
+            <ul class="features">
+                <li>Workout Tracking</li>
+                <li>Nutrition Tracking</li>
+                <li>Access to Community</li>
+            </ul>
+            <button class="cta-button" onclick="signUp()">Sign Up</button>
+        </div>
+        <div class="plan pro-plan">
+            <h3>Pro Plan</h3>
+            <p class="price">$19.99/month</p>
+            <ul class="features">
+                <li>Workout Tracking</li>
+                <li>Nutrition Tracking</li>
+                <li>Access to Community</li>
+                <li>Personalized Workout Plans</li>
+            </ul>
+            <button class="cta-button" onclick="signUp()">Sign Up</button>
+        </div>
+        <div class="plan premium-plan">
+            <h3>Premium Plan</h3>
+            <p class="price">$29.99/month</p>
+            <ul class="features">
+                <li>Workout Tracking</li>
+                <li>Nutrition Tracking</li>
+                <li>Access to Community</li>
+                <li>Personalized Workout Plans</li>
+                <li>1-on-1 Coaching</li>
+            </ul>
+            <button class="cta-button" onclick="signUp()">Sign Up</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>External Resources</h2>
+        <p>Here are some helpful resources for your fitness journey:</p>
+        <ul class="external-links">
+            <li><a href="https://www.bodybuilding.com" target="_blank">Bodybuilding.com</a></li>
+            <li><a href="https://www.healthline.com" target="_blank">Healthline</a></li>
+            <li><a href="https://www.webmd.com" target="_blank">WebMD</a></li>
+        </ul>
+    </section>
+
+    <section class="background-image-section">
+        <h2>Join Our Community</h2>
+        <p>Become a part of our fitness community to share and learn from fellow fitness enthusiasts!</p>
+        <button class="cta-button2" onclick="signUp()">Join Now</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fitness App. All rights reserved.</p>
+        <p>External links: 
+            <a href="https://www.bodybuilding.com" target="_blank">Bodybuilding.com</a> | 
+            <a href="https://www.healthline.com" target="_blank">Healthline</a> | 
+            <a href="https://www.webmd.com" target="_blank">WebMD</a>
+        </p>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" src="public/placeholder.png" alt="Modal Image">
+    </div>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        function toggleNavigation() {
+            if (navLinks.style.display === 'block') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'block';
+            }
+        }
+
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = ''; 
+            }
+        }
+
+        navToggle.addEventListener('click', toggleNavigation);
+        window.addEventListener('resize', handleResize);
+
+        function openModal(imageSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImage = document.getElementById("modalImage");
+            modalImage.setAttribute("src", imageSrc);
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+
+        function signUp() {
+            window.location.href = 'contact.html';
+        }
+    </script>
+</body>
+</html>
